@@ -1,0 +1,30 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Landing from '../components/Landing.astro';
+---
+
+<Layout title="Welcome to Astro.">
+	<main>
+		<Landing/>
+	</main>
+</Layout>
+
+<style>
+	main {
+		display: grid;
+		justify-content: center;
+		align-items: center;
+		height: 90vh;
+		width: 100%;
+		color: white;
+	}
+	.astro-a {
+		position: absolute;
+		top: -32px;
+		left: 50%;
+		transform: translatex(-50%);
+		width: 220px;
+		height: auto;
+		z-index: -1;
+	}
+</style>
