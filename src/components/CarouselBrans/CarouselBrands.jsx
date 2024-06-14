@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import './CarouselBrands.css';
 
-const CarouselBrands = ({ images, interval = 3000, visibleImages = 1 }) => {
+const CarouselBrands = ({ images, interval, visibleImages }) => {
   const [currentIndex, setCurrentIndex] = useState(0)
 
   const goToNextSlide = () => {
