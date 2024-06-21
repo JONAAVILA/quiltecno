@@ -1,23 +1,22 @@
 import { useState, useEffect } from 'react';
 import './CarouselBrands.css';
+import images from './images'
 
 const CarouselBrands = () => {
   const [currentIndex, setCurrentIndex] = useState(0)
-  const images = [
-    '../../brands/Quiltecno-LG.png',
-    '../../brands/Quiltecno-Apple.png',
-    '../../brands/Quiltecno-Motorola.png',
-    '../../brands/Quiltecno-Nokia.png',
-    '../../brands/Quiltecno-Sony.png',
-    '../../brands/Quiltecno-Xiaomi.png',
-    '../../brands/Quiltecno-Samsung.png',
-  ]
+  const [ visibleImages, setVisibleImages ] = useState(4)
   const interval = 3000
-  const visibleImages = 4
+  const screem = window.innerWidth
 
   const goToNextSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex >= images.length - visibleImages ? 0 : prevIndex + 1))
   };
+  
+  useEffect(()=>{ 
+    if(screem <= 500){
+      setVisibleImages(1)
+    }
+  },[screem])
 
   useEffect(() => {
     const autoPlay = setInterval(goToNextSlide, interval)
