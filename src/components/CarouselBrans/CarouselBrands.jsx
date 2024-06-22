@@ -6,17 +6,20 @@ const CarouselBrands = () => {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [ visibleImages, setVisibleImages ] = useState(4)
   const interval = 3000
-  const screem = window.innerWidth
+  const screen = window.innerWidth
 
   const goToNextSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex >= images.length - visibleImages ? 0 : prevIndex + 1))
   };
   
   useEffect(()=>{ 
-    if(screem <= 500){
+    if(screen <= 500){
       setVisibleImages(1)
     }
-  },[screem])
+    if(screen >= 750 && screen <= 900 ){
+      setVisibleImages(3)
+    }
+  },[screen])
 
   useEffect(() => {
     const autoPlay = setInterval(goToNextSlide, interval)
